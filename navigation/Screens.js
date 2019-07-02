@@ -96,7 +96,6 @@ const styles = StyleSheet.create({
   },
   label: {
     margin: 14,
-    fontWeight: "bold"
   },
   iconContainer: {
     marginHorizontal: 16,

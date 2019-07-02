@@ -1,17 +1,17 @@
-import React, { Component } from 'react'
-import { TouchableOpacity, StyleSheet } from 'react-native'
+import React, { Component } from "react";
+import { TouchableOpacity, StyleSheet } from "react-native";
 
-import Block from './Block';
-import Text from './Text';
-import Icon from './Icon';
-import * as theme from '../constants/theme';
+import Block from "./Block";
+import Text from "./Text";
+import Icon from "./Icon";
+import * as theme from "../constants/theme";
 
 export default class Card extends Component {
   static defaultProps = {
     shadow: true,
     border: true,
-    title: null,
-  }
+    title: null
+  };
 
   renderHeader = () => {
     const { title } = this.props;
@@ -24,8 +24,8 @@ export default class Card extends Component {
           <Icon options />
         </TouchableOpacity>
       </Block>
-    )
-  }
+    );
+  };
 
   render() {
     const { shadow, border, style, children, ...props } = this.props;
@@ -33,7 +33,7 @@ export default class Card extends Component {
       styles.card,
       shadow && styles.shadow,
       border && styles.border,
-      style,
+      style
     ];
 
     return (
@@ -41,7 +41,7 @@ export default class Card extends Component {
         {this.renderHeader()}
         {children}
       </Block>
-    )
+    );
   }
 }
 
@@ -49,20 +49,20 @@ const styles = StyleSheet.create({
   card: {
     flex: 1,
     padding: 25,
-    backgroundColor: theme.colors.white,
+    backgroundColor: theme.colors.white
   },
   header: {
-    paddingBottom: 24,
+    paddingBottom: 24
   },
   border: {
     borderColor: theme.colors.card,
-    borderWidth: 1,
+    borderWidth: 1
   },
   shadow: {
     shadowColor: theme.colors.shadow,
     shadowOpacity: 1,
     shadowRadius: 10,
     shadowOffset: { width: 0, height: 0 },
-    elevation: 2,
+    elevation: 2
   }
 });
