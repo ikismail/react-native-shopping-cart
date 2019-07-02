@@ -13,7 +13,8 @@ import Service from "../screens/Service";
 import Settings from "../screens/Settings";
 import Map from "../screens/Map";
 import Vehicles from "../screens/Vehicles";
-
+import * as theme from "../constants/theme";
+import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 import { StyleSheet } from "react-native";
 
 import {
@@ -25,14 +26,12 @@ import {
   Col,
   Thumbnail,
   Text,
-  Button
+  Button,
+  Icon
 } from "native-base";
 import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
-import { Icon } from "../components";
 
-const iconsMap = {
-  Home: "home"
-};
+const iconsMap = new Map([["Home", "home"], ["Logout", "logout"]]);
 
 const customDrawerComponent = props => {
   return (
@@ -75,10 +74,9 @@ const customDrawerComponent = props => {
                     name={
                       props.getLabel(scene) === "Home"
                         ? "home"
-                        : props.getLabel(scene) === "MyOrders"
-                        ? "cart-outline"
                         : props.getLabel(scene).toLowerCase()
                     }
+                    style={styles.icon}
                   />
                 </View>
                 <Text style={styles.label}>{props.getLabel(scene)}</Text>
@@ -97,9 +95,8 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   label: {
-    margin: 16,
-    fontWeight: "bold",
-    color: "rgba(0, 0, 0, .87)"
+    margin: 14,
+    fontWeight: "bold"
   },
   iconContainer: {
     marginHorizontal: 16,
@@ -107,8 +104,7 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   icon: {
-    width: 24,
-    height: 24
+    fontSize: 22
   }
 });
 
@@ -118,6 +114,10 @@ export default createDrawerNavigator(
     Logout
   },
   {
+    contentOptions: {
+      activeBackgroundColor: "#f3f4f591",
+      activeTintColor: theme.colors.lightblue
+    },
     contentComponent: customDrawerComponent
   }
 );

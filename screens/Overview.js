@@ -8,7 +8,7 @@ import {
 } from "react-native";
 
 import { Block, Card, Text, Icon, Label } from "../components";
-import * as theme from "../constants/theme";
+import * as theme from "../constants/theme";    
 import { DrawerActions } from "react-navigation";
 
 const styles = StyleSheet.create({

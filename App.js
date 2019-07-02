@@ -1,7 +1,12 @@
 import React from "react";
 import { Platform, StatusBar, StyleSheet, View } from "react-native";
-import { AppLoading, Asset, Font, Icon } from "expo";
+import { AppLoading, Icon } from "expo";
 import AppNavigator from "./navigation/AppNavigator";
+import { Asset } from "expo-asset";
+
+import * as Font from "expo-font";
+
+import { Ionicons } from "@expo/vector-icons";
 
 export default class App extends React.Component {
   state = {
@@ -42,7 +47,13 @@ export default class App extends React.Component {
         "Rubik-LightItalic": require("./assets/fonts/Rubik-LightItalic.ttf"),
         "Rubik-Medium": require("./assets/fonts/Rubik-Medium.ttf"),
         "Rubik-MediumItalic": require("./assets/fonts/Rubik-MediumItalic.ttf"),
-        "Rubik-Regular": require("./assets/fonts/Rubik-Regular.ttf")
+        "Rubik-Regular": require("./assets/fonts/Rubik-Regular.ttf"),
+        Roboto: require("native-base/Fonts/Roboto.ttf"),
+        Roboto_medium: require("native-base/Fonts/Roboto_medium.ttf"),
+        Entypo: require("native-base/Fonts/Entypo.ttf"),
+        Feather: require("native-base/Fonts/Feather.ttf"),
+        FontAwesome: require("native-base/Fonts/FontAwesome.ttf"),
+        Octicons: require("native-base/Fonts/Octicons.ttf")
       })
     ]);
   };
