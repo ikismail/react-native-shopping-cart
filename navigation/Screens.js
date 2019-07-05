@@ -7,12 +7,6 @@ import {
 
 import Home from "./Overview";
 import Logout from "./Auth";
-import Analytics from "../screens/Analytics";
-import Chat from "../screens/Chat";
-import Service from "../screens/Service";
-import Settings from "../screens/Settings";
-import Map from "../screens/Map";
-import Vehicles from "../screens/Vehicles";
 import * as theme from "../constants/theme";
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 import { StyleSheet } from "react-native";
@@ -29,7 +23,7 @@ import {
   Button,
   Icon
 } from "native-base";
-import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
+import { ScrollView } from "react-native-gesture-handler";
 
 const iconsMap = new Map([["Home", "home"], ["Logout", "logout"]]);
 
