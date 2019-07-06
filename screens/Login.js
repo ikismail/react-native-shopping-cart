@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import { Image, KeyboardAvoidingView, Dimensions } from 'react-native';
+import React, { Component } from "react";
+import { Image, KeyboardAvoidingView, Dimensions } from "react-native";
 
-import { Button, Block, Text, Input } from '../components';
+import { Button, Block, Text, Input } from "../components";
 
-const { height } = Dimensions.get('window');
+const { height } = Dimensions.get("window");
 
 class Login extends Component {
   render() {
@@ -19,7 +19,7 @@ class Login extends Component {
         <Block center middle>
           <Block middle>
             <Image
-              source={require('../assets/images/Base/Logo.png')}
+              source={require("../assets/images/Base/Logo.png")}
               style={{ height: 28, width: 102 }}
             />
           </Block>
@@ -43,11 +43,7 @@ class Login extends Component {
                 label="Password"
                 style={{ marginBottom: 25 }}
                 rightLabel={
-                  <Text
-                    paragraph
-                    color="gray"
-                    onPress={() => navigation.navigate('Forgot')}
-                  >
+                  <Text paragraph color="gray">
                     Forgot password?
                   </Text>
                 }
@@ -56,23 +52,25 @@ class Login extends Component {
               <Button
                 full
                 style={{ marginBottom: 12 }}
-                onPress={() => navigation.navigate('Overview')}
+                onPress={() => navigation.navigate("Overview")}
               >
                 <Text button>Sign in</Text>
               </Button>
               <Text paragraph color="gray">
-                Don't have an account? <Text
+                Don't have an account?{" "}
+                <Text
                   height={18}
                   color="blue"
-                  onPress={() => navigation.navigate('Register')}>
-                   Sign up
+                  onPress={() => navigation.navigate("Register")}
+                >
+                  Sign up
                 </Text>
               </Text>
             </Block>
           </Block>
         </Block>
       </KeyboardAvoidingView>
-    )
+    );
   }
 }
 

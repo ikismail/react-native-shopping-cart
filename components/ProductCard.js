@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Image, StyleSheet, Text } from "react-native";
 // import Text from "./Text";
 import { Content, Card, CardItem, Body, Col, Row, Button } from "native-base";
+import { TouchableOpacity } from "react-native-gesture-handler";
+import { withNavigation } from "react-navigation";
 
 const styles = StyleSheet.create({
   cardBody: {},
@@ -45,50 +47,49 @@ const styles = StyleSheet.create({
   descriptionText: {}
 });
 
-export default class ProductCard extends Component {
+class ProductCard extends Component {
   render() {
+    const { navigation } = this.props;
     const { cardBody, image, description, headerText, priceText } = styles;
 
     return (
       // Card
       <Card style={{ marginBottom: 0 }}>
-        <CardItem style={cardBody}>
-          <Body>
-            <Row>
-              <Col size={25}>
-                <Image
-                  style={image}
-                  source={{
-                    uri: this.props.product.productImage,
-                    cache: "default"
-                  }}
-                />
-              </Col>
-              <Col size={75} style={description}>
-                <Text style={headerText}>{this.props.product.productName}</Text>
-                <Text ellipsizeMode="tail" numberOfLines={2}>
-                  {this.props.product.productDescription}
-                </Text>
-                <Text style={priceText}>
-                  ${this.props.product.productPrice}
-                </Text>
-              </Col>
-            </Row>
-          </Body>
-        </CardItem>
-        {/* <CardItem footer style={cardFooter}>
-              <Col>
-                <Button small style={cardFooterButton}>
-                  <Text style={buttonText}>Sample</Text>
-                </Button>
-              </Col>
-              <Col>
-                <Button small style={cardFooterButton}>
-                  <Text style={buttonText}>Sample</Text>
-                </Button>
-              </Col>
-            </CardItem> */}
+        <TouchableOpacity
+          onPress={() =>
+            navigation.navigate("ProductDetail", {
+              data: this.props.product.productName
+            })
+          }
+        >
+          <CardItem style={cardBody}>
+            <Body>
+              <Row>
+                <Col size={25}>
+                  <Image
+                    style={image}
+                    source={this.props.product.productImage}
+                  />
+                </Col>
+                <Col size={75} style={description}>
+                  <Text style={headerText}>
+                    {this.props.product.productName}
+                  </Text>
+                  <Text ellipsizeMode="tail" numberOfLines={2}>
+                    {this.props.product.productDescription}
+                  </Text>
+                  <Text style={priceText}>
+                    ${this.props.product.productPrice}
+                  </Text>
+                </Col>
+              </Row>
+            </Body>
+          </CardItem>
+        </TouchableOpacity>
       </Card>
     );
   }
 }
+
+// It's useful when you cannot pass the navigation prop into the component directly, or don't want to pass it in case of a deeply nested child.
+export default withNavigation(ProductCard);

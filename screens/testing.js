@@ -46,8 +46,7 @@ const product = {
   productName: "Realme 1 (Solar Red, 4GB RAM, 64GB Storage)",
   productDescription: `Camera: 13 MP Rear camera with Fast facial unlock in less than 0.1 second with AI Recognition | 8 MP front camera
   Display: 15.2 centimeters (6-inch) Full HD 1080p capacitive touchscreen display with 2160x1080 pixels`,
-  productImage:
-    "https://www.indiacityblog.com/wp-content/uploads/2018/05/RealMe1.png",
+  productImage: require('../assets/images/products/realme1.png'),
   productPrice: "14.00"
 };
 
