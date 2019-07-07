@@ -8,8 +8,10 @@ import {
 } from "react-native";
 
 import { Block, Card, Text, Icon, Label } from "../components";
-import * as theme from "../constants/theme";    
+import * as theme from "../constants/theme";
 import { DrawerActions } from "react-navigation";
+import ProductCard from "../components/ProductCard";
+import { Button, View } from "native-base";
 
 const styles = StyleSheet.create({
   overview: {
@@ -18,15 +20,14 @@ const styles = StyleSheet.create({
     backgroundColor: theme.colors.white
   },
   margin: {
-    marginHorizontal: 25
+    marginHorizontal: 10
   },
   driver: {
     marginBottom: 11
   },
   avatar: {
     width: 48,
-    height: 48,
-    borderRadius: 24
+    height: 48
   }
 });
 
@@ -60,8 +61,9 @@ class Overview extends Component {
   render() {
     return (
       <SafeAreaView style={styles.overview}>
-        <ScrollView contentContainerStyle={{ paddingVertical: 25 }}>
-          <Card row middle style={styles.margin}>
+        <ScrollView contentContainerStyle={{ paddingVertical: 5 }}>
+          {/* Status */}
+          <Card row middle style={[styles.margin, { marginTop: 18 }]}>
             <Block flex={1.2} center middle style={{ marginRight: 20 }}>
               <Text light height={43} size={36} spacing={-0.45}>
                 86
@@ -83,6 +85,7 @@ class Overview extends Component {
             </Block>
           </Card>
 
+          {/* Analytics */}
           <Block row style={[styles.margin, { marginTop: 18 }]}>
             <Card middle style={{ marginRight: 7 }}>
               <Icon vehicle />
@@ -104,6 +107,13 @@ class Overview extends Component {
               </Text>
             </Card>
           </Block>
+
+          {/* Top Mobiles */}
+          <Card style={[styles.margin, { marginTop: 5 }]}>
+            <ProductCard />
+            <ProductCard />
+            <ProductCard />
+          </Card>
 
           <Card
             title="TODAY'S TRIPS"
@@ -128,97 +138,19 @@ class Overview extends Component {
             </Block>
           </Card>
 
-          <Card title="TOP DRIVERS" style={[styles.margin, { marginTop: 18 }]}>
-            <Block style={styles.driver}>
-              <TouchableOpacity activeOpacity={0.8}>
-                <Block row center>
-                  <Block>
-                    <Image
-                      style={styles.avatar}
-                      source={{
-                        uri:
-                          "https://images.unsplash.com/photo-1506244856291-8910ea843e81?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"
-                      }}
-                    />
-                  </Block>
-                  <Block flex={2}>
-                    <Text h4>Grand Tesoro</Text>
-                    <Text paragraph color="gray">
-                      Chevrolet Bolt
-                    </Text>
-                  </Block>
-                  <Block>
-                    <Text paragraph right color="black">
-                      $6,432
-                    </Text>
-                    <Text paragraph right color="gray">
-                      1,232 miles
-                    </Text>
-                  </Block>
-                </Block>
-              </TouchableOpacity>
-            </Block>
-            <Block style={styles.driver}>
-              <TouchableOpacity activeOpacity={0.8}>
-                <Block row center>
-                  <Block>
-                    <Image
-                      style={styles.avatar}
-                      source={{
-                        uri:
-                          "https://images.unsplash.com/photo-1521657249896-063c0c611fe5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"
-                      }}
-                    />
-                  </Block>
-                  <Block flex={2}>
-                    <Text h4>Invision App</Text>
-                    <Text paragraph color="gray">
-                      Tesla Model X
-                    </Text>
-                  </Block>
-                  <Block>
-                    <Text paragraph right color="black">
-                      $6,432
-                    </Text>
-                    <Text paragraph right color="gray">
-                      1,232 miles
-                    </Text>
-                  </Block>
-                </Block>
-              </TouchableOpacity>
-            </Block>
-            <Block style={styles.driver}>
-              <TouchableOpacity activeOpacity={0.8}>
-                <Block row center>
-                  <Block>
-                    <Image
-                      style={styles.avatar}
-                      source={{
-                        uri:
-                          "https://images.unsplash.com/photo-1536700503339-1e4b06520771?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"
-                      }}
-                    />
-                  </Block>
-                  <Block flex={2}>
-                    <Text h4>React UI Kit</Text>
-                    <Text paragraph color="gray">
-                      Volvo Intellisafe
-                    </Text>
-                  </Block>
-                  <Block>
-                    <Text paragraph right color="black">
-                      $6,432
-                    </Text>
-                    <Text paragraph right color="gray">
-                      1,232 miles
-                    </Text>
-                  </Block>
-                </Block>
-              </TouchableOpacity>
-            </Block>
+          {/* Top Brands */}
+          <Card title="TOP BRANDS" style={[styles.margin, { marginTop: 18 }]}>
+            <ProductCard />
+            <ProductCard />
+            <ProductCard />
+            <View>
+              <Button transparent style={{ alignSelf: "center" }}>
+                <Text style={{ color: "blue" }}>See More</Text>
+              </Button>
+            </View>
           </Card>
 
-          <Card
+          {/* <Card
             title="TRIPS BY TYPE"
             style={[styles.margin, { marginTop: 18 }]}
           >
@@ -249,7 +181,7 @@ class Overview extends Component {
                 </Block>
               </Block>
             </Block>
-          </Card>
+          </Card> */}
         </ScrollView>
       </SafeAreaView>
     );

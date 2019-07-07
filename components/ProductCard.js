@@ -1,92 +1,59 @@
 import React, { Component } from "react";
-import { Image, StyleSheet, Text } from "react-native";
-// import Text from "./Text";
-import { Content, Card, CardItem, Body, Col, Row, Button } from "native-base";
+import { StyleSheet, Image } from "react-native";
+import Block from "./Block";
+import Text from "./Text"
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { withNavigation } from "react-navigation";
 
 const styles = StyleSheet.create({
-  cardBody: {},
-  cardFooter: {
-    marginTop: -15
+  driver: {
+    marginBottom: 11
   },
-  cardFooterButton: {
-    flex: 1,
-    alignSelf: "center",
-    padding: 10,
-    width: 120,
-    backgroundColor: "darkgreen"
-  },
-  buttonText: {
-    flex: 1,
-    textAlign: "center",
-    color: "white"
-  },
-  image: {
-    flex: 1,
-    padding: 5,
-    width: 85,
-    height: 70,
-    justifyContent: "center",
-    alignItems: "center"
-  },
-  description: {
-    marginLeft: 10,
-    padding: 5
-  },
-  headerText: {
-    fontSize: 15,
-    fontWeight: "bold"
-  },
-  priceText: {
-    fontSize: 18,
-    fontWeight: "500",
-    marginTop: 5,
-    color: "red"
-  },
-  descriptionText: {}
+  avatar: {
+    width: 48,
+    height: 48
+  }
 });
 
 class ProductCard extends Component {
   render() {
     const { navigation } = this.props;
-    const { cardBody, image, description, headerText, priceText } = styles;
 
     return (
       // Card
-      <Card style={{ marginBottom: 0 }}>
-        <TouchableOpacity
-          onPress={() =>
-            navigation.navigate("ProductDetail", {
-              data: this.props.product.productName
-            })
-          }
-        >
-          <CardItem style={cardBody}>
-            <Body>
-              <Row>
-                <Col size={25}>
-                  <Image
-                    style={image}
-                    source={this.props.product.productImage}
-                  />
-                </Col>
-                <Col size={75} style={description}>
-                  <Text style={headerText}>
-                    {this.props.product.productName}
-                  </Text>
-                  <Text ellipsizeMode="tail" numberOfLines={2}>
-                    {this.props.product.productDescription}
-                  </Text>
-                  <Text style={priceText}>
-                    ${this.props.product.productPrice}
-                  </Text>
-                </Col>
-              </Row>
-            </Body>
-          </CardItem>
+      <Block style={styles.driver}>
+        <TouchableOpacity activeOpacity={0.8}>
+          <Block row center>
+            <Block>
+              <Image
+                style={styles.avatar}
+                source={require("../assets/images/products/realme1.png")}
+              />
+            </Block>
+            <Block flex={2}>
+              <Text paragraph ellipsizeMode="tail" numberOfLines={1}>
+                Realme 1 (Solar Red, 4GB RAM, 64GB Storage)
+              </Text>
+              <Text
+                paragraph
+                color="gray"
+                ellipsizeMode="tail"
+                numberOfLines={2}
+              >
+                Camera: 13 MP Rear camera with Fast facial unlock in less than
+                0.1 second with AI Recognition | 8 MP front camera Display: 15.2
+                centimeters (6-inch) Full HD 1080p capacitive touchscreen
+                display with 2160x1080 pixels
+              </Text>
+            </Block>
+            <Block>
+              <Text paragraph right color="red">
+                $6,432
+              </Text>
+            </Block>
+          </Block>
         </TouchableOpacity>
-      </Card>
+      </Block>
     );
   }
 }
