@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { StyleSheet, Image } from "react-native";
 import Block from "./Block";
-import Text from "./Text"
+import Text from "./Text";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { withNavigation } from "react-navigation";
 
@@ -22,7 +22,14 @@ class ProductCard extends Component {
     return (
       // Card
       <Block style={styles.driver}>
-        <TouchableOpacity activeOpacity={0.8}>
+        <TouchableOpacity
+          activeOpacity={0.8}
+          onPress={() =>
+            navigation.navigate("ProductDetail", {
+              data: "Realme 1 (Solar Red, 4GB RAM, 64GB Storage)"
+            })
+          }
+        >
           <Block row center>
             <Block>
               <Image

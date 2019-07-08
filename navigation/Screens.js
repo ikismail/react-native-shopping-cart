@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   label: {
-    margin: 14,
+    margin: 14
   },
   iconContainer: {
     marginHorizontal: 16,

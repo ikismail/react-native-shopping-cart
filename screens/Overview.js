@@ -65,8 +65,8 @@ class Overview extends Component {
           {/* Status */}
           <Card row middle style={[styles.margin, { marginTop: 18 }]}>
             <Block flex={1.2} center middle style={{ marginRight: 20 }}>
-              <Text light height={43} size={36} spacing={-0.45}>
-                86
+              <Text light height={43} size={36} spacing={-0.45} color="red">
+                $6,432
               </Text>
               <Text
                 ligth
@@ -74,13 +74,12 @@ class Overview extends Component {
                 center
                 style={{ paddingHorizontal: 16, marginTop: 3 }}
               >
-                OPERATING SCORE
+                Your recent order
               </Text>
             </Block>
             <Block>
               <Text paragraph color="black3">
-                All cars are operating well. There were 1,233 trips since your
-                last login.
+                Realme 1 (Solar Red, 4GB RAM, 64GB Storage)
               </Text>
             </Block>
           </Card>
@@ -108,14 +107,19 @@ class Overview extends Component {
             </Card>
           </Block>
 
-          {/* Top Mobiles */}
-          <Card style={[styles.margin, { marginTop: 5 }]}>
+          {/* Top Brands */}
+          <Card title="TOP BRANDS" style={[styles.margin, { marginTop: 18 }]}>
             <ProductCard />
             <ProductCard />
             <ProductCard />
+            <View>
+              <Button transparent style={{ alignSelf: "center" }}>
+                <Text color="blue">See More</Text>
+              </Button>
+            </View>
           </Card>
 
-          <Card
+          {/* <Card
             title="TODAY'S TRIPS"
             style={[styles.margin, { marginTop: 18 }]}
           >
@@ -136,18 +140,45 @@ class Overview extends Component {
             <Block>
               <Text>Chart</Text>
             </Block>
+          </Card> */}
+          <Card
+            title="TRIPS BY TYPE"
+            style={[styles.margin, { marginTop: 18 }]}
+          >
+            <Block>
+              <Text>Chart</Text>
+            </Block>
+            <Block row space="between" style={{ marginTop: 25 }}>
+              <Block>
+                <Text h2 light>
+                  1,744
+                </Text>
+                <Block row center>
+                  <Label blue />
+                  <Text paragraph color="gray">
+                    Confort
+                  </Text>
+                </Block>
+              </Block>
+              <Block>
+                <Text h2 light>
+                  2,312
+                </Text>
+                <Block row center>
+                  <Label purple />
+                  <Text paragraph color="gray">
+                    Premium
+                  </Text>
+                </Block>
+              </Block>
+            </Block>
           </Card>
 
-          {/* Top Brands */}
-          <Card title="TOP BRANDS" style={[styles.margin, { marginTop: 18 }]}>
+          {/* Top Mobiles */}
+          <Card style={[styles.margin, { marginTop: 5 }]}>
             <ProductCard />
             <ProductCard />
             <ProductCard />
-            <View>
-              <Button transparent style={{ alignSelf: "center" }}>
-                <Text style={{ color: "blue" }}>See More</Text>
-              </Button>
-            </View>
           </Card>
 
           {/* <Card
