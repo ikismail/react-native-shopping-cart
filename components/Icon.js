@@ -36,23 +36,16 @@ const optionsIcon = (
   />
 );
 
-export default class Icon extends PureComponent {
-  render() {
-    const {
-      menu,
-      notification,
-      vehicle,
-      distance,
-      options,
-      children
-    } = this.props;
+const Icon = (props) => {
+  const { menu, notification, vehicle, distance, options, children } = props;
 
-    if (menu) return menuIcon;
-    if (notification) return notificationIcon;
-    if (vehicle) return vehicleIcon;
-    if (distance) return distanceIcon;
-    if (options) return optionsIcon;
+  if (menu) return menuIcon;
+  if (notification) return notificationIcon;
+  if (vehicle) return vehicleIcon;
+  if (distance) return distanceIcon;
+  if (options) return optionsIcon;
 
-    return children || null;
-  }
-}
+  return children || null;
+};
+
+export default Icon;

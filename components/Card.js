@@ -6,25 +6,26 @@ import Text from "./Text";
 import Icon from "./Icon";
 import * as theme from "../constants/theme";
 
+export const CardHeader = ({ title }) => {
+  return (
+    <>
+      {title && (
+        <Block row space='between' style={styles.header}>
+          <Text caption>{title}</Text>
+          <TouchableOpacity>
+            <Icon options />
+          </TouchableOpacity>
+        </Block>
+      )}
+    </>
+  );
+};
+
 export default class Card extends Component {
   static defaultProps = {
     shadow: true,
     border: true,
-    title: null
-  };
-
-  renderHeader = () => {
-    const { title } = this.props;
-    if (!title) return null;
-
-    return (
-      <Block row space="between" style={styles.header}>
-        <Text caption>{title}</Text>
-        <TouchableOpacity>
-          <Icon options />
-        </TouchableOpacity>
-      </Block>
-    );
+    title: null,
   };
 
   render() {
@@ -33,12 +34,12 @@ export default class Card extends Component {
       styles.card,
       shadow && styles.shadow,
       border && styles.border,
-      style
+      style,
     ];
 
     return (
       <Block style={cardStyles} {...props}>
-        {this.renderHeader()}
+        <CardHeader {...props} />
         {children}
       </Block>
     );
@@ -49,20 +50,20 @@ const styles = StyleSheet.create({
   card: {
     flex: 1,
     padding: 25,
-    backgroundColor: theme.colors.white
+    backgroundColor: theme.colors.white,
   },
   header: {
-    paddingBottom: 24
+    paddingBottom: 24,
   },
   border: {
     borderColor: theme.colors.card,
-    borderWidth: 1
+    borderWidth: 1,
   },
   shadow: {
     shadowColor: theme.colors.shadow,
     shadowOpacity: 1,
     shadowRadius: 10,
     shadowOffset: { width: 0, height: 0 },
-    elevation: 2
-  }
+    elevation: 2,
+  },
 });

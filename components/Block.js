@@ -1,43 +1,52 @@
-import React, { Component } from 'react'
-import { StyleSheet, View } from 'react-native'
+import React from "react";
+import { StyleSheet, View } from "react-native";
 
-export default class Block extends Component {
-  render() {
-    const { flex, row, center, middle, right, space, style, children, ...props } = this.props;
-    const blockStyles = [
-      styles.block,
-      flex && { flex },
-      flex === 'disabled' && { flex: 0 },
-      center && styles.center,
-      middle && styles.middle,
-      right && styles.right,
-      space && { justifyContent: `space-${space}` },
-      row && styles.row,
-      style,
-    ];
-
-    return (
-      <View style={blockStyles} {...props}>
-        {children}
-      </View>
-    )
-  }
-}
+const Block = (props) => {
+  const {
+    flex,
+    row,
+    center,
+    middle,
+    right,
+    space,
+    style,
+    children,
+    ...restProps
+  } = props;
+  const blockStyles = [
+    styles.block,
+    flex && { flex },
+    flex === "disabled" && { flex: 0 },
+    center && styles.center,
+    middle && styles.middle,
+    right && styles.right,
+    space && { justifyContent: `space-${space}` },
+    row && styles.row,
+    style,
+  ];
+  return (
+    <View style={blockStyles} {...restProps}>
+      {children}
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
   block: {
     flex: 1,
   },
   row: {
-    flexDirection: 'row'
+    flexDirection: "row",
   },
   center: {
-    alignItems: 'center'
+    alignItems: "center",
   },
   middle: {
-    justifyContent: 'center'
+    justifyContent: "center",
   },
   right: {
-    justifyContent: 'flex-end'
+    justifyContent: "flex-end",
   },
 });
+
+export default Block;

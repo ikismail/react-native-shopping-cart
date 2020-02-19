@@ -1,48 +1,47 @@
-import React, { Component } from 'react'
-import { StyleSheet, View } from 'react-native'
+import React from "react";
+import { StyleSheet, View } from "react-native";
+import * as theme from "../constants/theme";
 
-import * as theme from '../constants/theme';
+const Label = (props) => {
+  const {
+    blue,
+    green,
+    red,
+    yellow,
+    teal,
+    purple,
+    black,
+    white,
+    gray,
+    color,
+    style,
+    children,
+    ...restProps
+  } = props;
 
-export default class Label extends Component {
-  render() {
-    const {
-      blue,
-      green,
-      red,
-      yellow,
-      teal,
-      purple,
-      black,
-      white,
-      gray,
-      color,
-      style,
-      children,
-      ...props
-    } = this.props;
+  const labelStyles = [
+    styles.label,
+    color && { backgroundColor: color },
+    blue && { backgroundColor: theme.colors.blue },
+    green && { backgroundColor: theme.colors.green },
+    red && { backgroundColor: theme.colors.red },
+    yellow && { backgroundColor: theme.colors.yellow },
+    teal && { backgroundColor: theme.colors.teal },
+    purple && { backgroundColor: theme.colors.purple },
+    black && { backgroundColor: theme.colors.black },
+    white && { backgroundColor: theme.colors.white },
+    gray && { backgroundColor: theme.colors.gray },
+    style,
+  ];
 
-    const labelStyles = [
-      styles.label,
-      color && { backgroundColor: color },
-      blue && { backgroundColor: theme.colors.blue },
-      green && { backgroundColor: theme.colors.green },
-      red && { backgroundColor: theme.colors.red },
-      yellow && { backgroundColor: theme.colors.yellow },
-      teal && { backgroundColor: theme.colors.teal },
-      purple && { backgroundColor: theme.colors.purple },
-      black && { backgroundColor: theme.colors.black },
-      white && { backgroundColor: theme.colors.white },
-      gray && { backgroundColor: theme.colors.gray },
-      style,
-    ];
+  return (
+    <View style={labelStyles} {...restProps}>
+      {children}
+    </View>
+  );
+};
 
-    return (
-      <View style={labelStyles} {...props}>
-        {children}
-      </View>
-    )
-  }
-}
+export default Label;
 
 const styles = StyleSheet.create({
   label: {
