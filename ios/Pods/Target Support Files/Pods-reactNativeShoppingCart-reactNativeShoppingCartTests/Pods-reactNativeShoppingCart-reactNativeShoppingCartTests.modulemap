@@ -1,0 +1,6 @@
+module Pods_reactNativeShoppingCart_reactNativeShoppingCartTests {
+  umbrella header "Pods-reactNativeShoppingCart-reactNativeShoppingCartTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
