@@ -8,6 +8,7 @@ import { BellIcon, ForwardIcon, HomeIcon } from "../components/icons";
 import LoginScreen from "../screens/login.screen";
 import NotificationScreen from "../screens/notification.screen";
 import SignupScreen from "../screens/signup.screen";
+import ForgetPasswordScreen from "../screens/password_reset.screen";
 
 import BottomNavigation from "./bottomNavigator.route";
 
@@ -58,6 +59,7 @@ const DrawerNavigator = () => {
       <Screen name='Notifications' component={NotificationScreen} />
       <Screen name='Login' component={LoginScreen} />
       <Screen name='SignUp' component={SignupScreen} />
+      <Screen name='ForgotPassword' component={ForgetPasswordScreen} />
     </Navigator>
   );
 };
