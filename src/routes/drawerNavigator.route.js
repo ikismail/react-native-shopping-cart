@@ -3,7 +3,12 @@ import { Divider, Drawer, DrawerItem } from "@ui-kitten/components";
 import React from "react";
 import { ImageBackground, StyleSheet } from "react-native";
 
-import { BellIcon, ForwardIcon, HomeIcon } from "../components/icons";
+import {
+  BellIcon,
+  ForwardIcon,
+  HomeIcon,
+  LogoutIcon,
+} from "../components/icons";
 
 import LoginScreen from "../screens/login.screen";
 import NotificationScreen from "../screens/notification.screen";
@@ -29,6 +34,8 @@ const DrawerContent = ({ navigation, state }) => {
 
   const navigate = (index) => {
     setSelectedIndex(index);
+    console.log("routeNames", state.routeNames);
+    console.log("routeNames", index);
     navigation.navigate(state.routeNames[index.row]);
   };
   return (
@@ -46,6 +53,7 @@ const DrawerContent = ({ navigation, state }) => {
         accessoryLeft={BellIcon}
         accessoryRight={ForwardIcon}
       />
+      <DrawerItem title='Logout' accessoryLeft={LogoutIcon} />
     </Drawer>
   );
 };

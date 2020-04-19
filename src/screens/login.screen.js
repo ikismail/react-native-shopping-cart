@@ -15,7 +15,7 @@ const LoginScreen = ({ navigation }) => {
   const [password, setPassword] = React.useState();
 
   const onSignInButtonPress = () => {
-    navigation && navigation.goBack();
+    navigation && navigation.navigate("Home");
   };
 
   const onSignUpButtonPress = () => {

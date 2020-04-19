@@ -25,7 +25,11 @@ export const EmailIcon = (style) => <Icon {...style} name='email' />;
 
 export const HomeIcon = (props) => <Icon {...props} name='home-outline' />;
 
+export const LogoutIcon = (props) => <Icon {...props} name='log-out-outline' />;
+
 export const BellIcon = (props) => <Icon {...props} name='bell-outline' />;
+
+export const ClockIcon = (style) => <Icon {...style} name='clock' />;
 
 export const ForwardIcon = (props) => (
   <Icon {...props} name='arrow-ios-forward' />
