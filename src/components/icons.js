@@ -29,7 +29,17 @@ export const LogoutIcon = (props) => <Icon {...props} name='log-out-outline' />;
 
 export const BellIcon = (props) => <Icon {...props} name='bell-outline' />;
 
+export const MenuIcon = (props) => <Icon {...props} name='menu-outline' />;
+
 export const ClockIcon = (style) => <Icon {...style} name='clock' />;
+
+export const BackIcon = (style) => (
+  <Icon {...style} name='arrow-back-outline' />
+);
+
+export const CartIcon = (style) => (
+  <Icon {...style} name='shopping-cart-outline' />
+);
 
 export const ForwardIcon = (props) => (
   <Icon {...props} name='arrow-ios-forward' />

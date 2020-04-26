@@ -1,9 +1,15 @@
-import { List, Text } from "@ui-kitten/components";
+import {
+  List,
+  Text,
+  TopNavigation,
+  TopNavigationAction,
+} from "@ui-kitten/components";
 import React from "react";
-import { StyleSheet } from "react-native";
+import { StyleSheet, SafeAreaView, StatusBar } from "react-native";
 
 import TrainingCard from "../components/training-card";
 import { Training } from "../store/data/trainings";
+import { MenuIcon } from "../components/icons";
 
 const trainings = [
   Training.chestEasy(),
@@ -18,9 +24,7 @@ const trainings = [
 ];
 
 const HomeScreen = ({ navigation }) => {
-  const displayTrainings = trainings.filter(
-    (training) => training.level === "Easy"
-  );
+  const displayTrainings = trainings;
 
   const renderHeader = () => (
     <React.Fragment>
@@ -38,20 +42,47 @@ const HomeScreen = ({ navigation }) => {
   );
 
   const renderHorizontalTrainingItem = (info) => (
-    <TrainingCard style={styles.horizontalItem} training={info.item} />
+    <TrainingCard
+      style={styles.horizontalItem}
+      training={info.item}
+      navigation={navigation}
+    />
   );
 
   const renderVerticalTrainingItem = (info) => (
-    <TrainingCard style={styles.verticalItem} training={info.item} />
+    <TrainingCard
+      style={styles.verticalItem}
+      training={info.item}
+      navigation={navigation}
+    />
+  );
+
+  const toggleDrawer = () => {
+    navigation.toggleDrawer();
+  };
+
+  const menuRenderer = () => (
+    <TopNavigationAction icon={MenuIcon} onPress={toggleDrawer} />
   );
 
   return (
-    <List
-      contentContainerStyle={styles.list}
-      data={trainings}
-      renderItem={renderVerticalTrainingItem}
-      ListHeaderComponent={renderHeader}
-    />
+    <React.Fragment>
+      <StatusBar barStyle={"dark-content"} />
+      <SafeAreaView style={{ flex: 1, margin: 5 }}>
+        <TopNavigation
+          title='Home'
+          alignment='center'
+          accessoryLeft={menuRenderer}
+          // rightControls={[overflowMenu()]}
+        />
+        <List
+          contentContainerStyle={styles.list}
+          data={trainings}
+          renderItem={renderVerticalTrainingItem}
+          ListHeaderComponent={renderHeader}
+        />
+      </SafeAreaView>
+    </React.Fragment>
   );
 };
 
@@ -59,7 +90,7 @@ export default HomeScreen;
 
 const styles = StyleSheet.create({
   list: {
-    paddingVertical: 24,
+    paddingVertical: 10,
   },
   headerTitle: {
     marginHorizontal: 16,

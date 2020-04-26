@@ -1,14 +1,17 @@
 import React from "react";
-import { StyleSheet } from "react-native";
+import { StyleSheet, ImageBackground } from "react-native";
 import { Button, Card, Text } from "@ui-kitten/components";
 import { ImageOverlay } from "./image-overlay";
 import { ClockIcon } from "./icons";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 const TrainingCard = (props) => {
-  const { style, training, ...cardProps } = props;
+  const { style, training, navigation, ...cardProps } = props;
   return (
-    <Card {...cardProps} style={[style, styles.container]}>
-      <ImageOverlay style={styles.image} source={training.image}>
+    <TouchableOpacity onPress={() => navigation.navigate("ProductList")}>
+      <ImageOverlay
+        style={[style, styles.container, styles.image]}
+        source={training.image}>
         <Text style={styles.level} category='s1' status='control'>
           {training.formattedLevel}
         </Text>
@@ -19,7 +22,7 @@ const TrainingCard = (props) => {
           {training.formattedDuration}
         </Button>
       </ImageOverlay>
-    </Card>
+    </TouchableOpacity>
   );
 };
 
@@ -30,7 +33,6 @@ const styles = StyleSheet.create({
     height: 200,
   },
   image: {
-    ...StyleSheet.absoluteFillObject,
     height: 200,
     paddingVertical: 24,
     paddingHorizontal: 16,

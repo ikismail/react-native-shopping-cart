@@ -65,7 +65,11 @@ const DrawerNavigator = () => {
       drawerContent={(props) => <DrawerContent {...props} />}>
       <Screen name='Home' component={BottomNavigation} />
       <Screen name='Notifications' component={NotificationScreen} />
-      <Screen name='Login' component={LoginScreen} />
+      <Screen
+        name='Login'
+        component={LoginScreen}
+        options={{ gestureEnabled: false }}
+      />
       <Screen name='SignUp' component={SignupScreen} />
       <Screen name='ForgotPassword' component={ForgetPasswordScreen} />
     </Navigator>
