@@ -37,6 +37,14 @@ export const BackIcon = (style) => (
   <Icon {...style} name='arrow-back-outline' />
 );
 
+export const MessageCircleIcon = (style) => (
+  <Icon {...style} name='message-circle-outline' />
+);
+
+export const MoreHorizontalIcon = (style) => (
+  <Icon {...style} name='more-horizontal' />
+);
+
 export const CartIcon = (style) => (
   <Icon {...style} name='shopping-cart-outline' />
 );

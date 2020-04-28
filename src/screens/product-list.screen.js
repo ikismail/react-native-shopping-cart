@@ -36,7 +36,7 @@ const ProductListScreen = ({ navigation, route }) => {
   const displayProducts = products;
 
   const onItemPress = (index) => {
-    // navigation && navigation.navigate("ProductDetails3");
+    navigation && navigation.navigate("ProductDetail");
   };
 
   const onItemCartPress = (index) => {

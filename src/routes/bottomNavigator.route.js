@@ -12,6 +12,7 @@ import {
   Icon,
   Text,
 } from "@ui-kitten/components";
+import ProductDetailScreen from "../screens/product-detail.screen";
 
 const { Navigator, Screen } = createBottomTabNavigator();
 
@@ -46,7 +47,7 @@ const BottomNavigator = () => {
       <Screen name='Settings' component={SettingsScreen} />
       {/* Pages */}
       <Screen name='ProductList' component={ProductListScreen} />
-      <Screen name='ProductDetail' component={SettingsScreen} />
+      <Screen name='ProductDetail' component={ProductDetailScreen} />
       <Screen name='Cart' component={SettingsScreen} />
       <Screen name='Checkout' component={SettingsScreen} />
       <Screen name='Payment' component={SettingsScreen} />
