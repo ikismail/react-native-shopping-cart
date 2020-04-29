@@ -16,6 +16,7 @@ import { KeyboardAvoidingView } from "../components/3rd-party";
 import { CommentList } from "../components/comments-list";
 import { ProductDetail } from "../store/data/product";
 import { BackIcon } from "../components/icons";
+import { ScrollView } from "react-native-gesture-handler";
 
 const product = ProductDetail.pinkChair();
 
@@ -31,27 +32,30 @@ const ProductDetailScreen = ({ navigation }) => {
   const styles = useStyleSheet(themedStyles);
 
   const onBuyButtonPress = () => {
-    navigation && navigation.navigate("Payment");
+    // navigation && navigation.navigate("Payment");
   };
 
   const onAddButtonPress = () => {
-    navigation && navigation.navigate("ShoppingCart");
+    // navigation && navigation.navigate("ShoppingCart");
   };
 
-  const renderColorItem = (color, index) => (
-    <Radio
-      key={index}
-      style={styles.colorRadio}
-      textStyle={{ color: color.value }}
-      text={color.description.toUpperCase()}
-    />
-  );
+  const renderColorItem = (color, index) => {
+    return (
+      <Radio key={index} style={styles.colorRadio}>
+        <Text style={{ color: color.value }}>
+          {color.description.toUpperCase()}
+        </Text>
+      </Radio>
+    );
+  };
 
   const renderHeader = () => (
     <Layout style={styles.header}>
       <ImageBackground style={styles.image} source={product.image} />
       <Layout style={styles.detailsContainer} level='1'>
-        <Text category='h6'>{product.title}</Text>
+        <Text category='h6' style={{ fontWeight: "normal" }}>
+          {product.title}
+        </Text>
         <Text style={styles.subtitle} appearance='hint' category='p2'>
           {product.subtitle}
         </Text>
@@ -121,7 +125,6 @@ const ProductDetailScreen = ({ navigation }) => {
           // rightControls={[overflowMenu()]}
         />
         <KeyboardAvoidingView style={styles.container}>
-          {/* offset={keyboardOffset} */}
           <CommentList
             style={styles.commentList}
             data={product.comments}
@@ -168,6 +171,7 @@ const themedStyles = StyleService.create({
   },
   size: {
     marginBottom: 16,
+    fontWeight: "normal",
   },
   colorGroup: {
     flexDirection: "row",
