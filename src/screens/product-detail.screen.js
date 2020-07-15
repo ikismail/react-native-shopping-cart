@@ -1,5 +1,3 @@
-import React from "react";
-import { ImageBackground, Platform, View, SafeAreaView } from "react-native";
 import {
   Button,
   Input,
@@ -8,15 +6,16 @@ import {
   RadioGroup,
   StyleService,
   Text,
-  useStyleSheet,
   TopNavigation,
   TopNavigationAction,
+  useStyleSheet,
 } from "@ui-kitten/components";
+import React from "react";
+import { ImageBackground, SafeAreaView, View } from "react-native";
 import { KeyboardAvoidingView } from "../components/3rd-party";
 import { CommentList } from "../components/comments-list";
-import { ProductDetail } from "../store/data/product";
 import { BackIcon } from "../components/icons";
-import { ScrollView } from "react-native-gesture-handler";
+import { ProductDetail } from "../store/data/product";
 
 const product = ProductDetail.pinkChair();
 

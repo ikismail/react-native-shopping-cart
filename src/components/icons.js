@@ -33,6 +33,14 @@ export const MenuIcon = (props) => <Icon {...props} name='menu-outline' />;
 
 export const ClockIcon = (style) => <Icon {...style} name='clock' />;
 
+export const SearchIcon = (style) => <Icon {...style} name='search' />;
+
+export const MinusIcon = (style) => <Icon {...style} name='minus' />;
+
+export const PlusIcon = (style) => <Icon {...style} name='plus' />;
+
+export const CloseIcon = (style) => <Icon {...style} name='close' />;
+
 export const BackIcon = (style) => (
   <Icon {...style} name='arrow-back-outline' />
 );

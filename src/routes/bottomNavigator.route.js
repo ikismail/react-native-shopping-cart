@@ -11,6 +11,7 @@ import OrdersScreen from "../screens/orders.screen";
 import ProductDetailScreen from "../screens/product-detail.screen";
 import ProductListScreen from "../screens/product-list.screen";
 import SettingsScreen from "../screens/settings.screen";
+import { CartScreen } from "../screens/cart.screen";
 
 const { Navigator, Screen } = createBottomTabNavigator();
 
@@ -46,7 +47,7 @@ const BottomNavigator = () => {
       {/* Pages */}
       <Screen name='ProductList' component={ProductListScreen} />
       <Screen name='ProductDetail' component={ProductDetailScreen} />
-      <Screen name='Cart' component={SettingsScreen} />
+      <Screen name='Cart' component={CartScreen} />
       <Screen name='Checkout' component={SettingsScreen} />
       <Screen name='Payment' component={SettingsScreen} />
       <Screen name='AddNewCard' component={SettingsScreen} />
