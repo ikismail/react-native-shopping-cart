@@ -1,18 +1,16 @@
-import React from "react";
-import HomeScreen from "../screens/home.screen";
-import SettingsScreen from "../screens/settings.screen";
-import ProductListScreen from "../screens/product-list.screen";
-import OrdersScreen from "../screens/orders.screen";
-import NewsScreen from "../screens/news.screen";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import {
   BottomNavigation,
   BottomNavigationTab,
-  Layout,
   Icon,
-  Text,
 } from "@ui-kitten/components";
+import React from "react";
+import HomeScreen from "../screens/home.screen";
+import NewsScreen from "../screens/news.screen";
+import OrdersScreen from "../screens/orders.screen";
 import ProductDetailScreen from "../screens/product-detail.screen";
+import ProductListScreen from "../screens/product-list.screen";
+import SettingsScreen from "../screens/settings.screen";
 
 const { Navigator, Screen } = createBottomTabNavigator();
 

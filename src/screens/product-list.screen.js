@@ -31,6 +31,9 @@ const products = [
 ];
 
 const ProductListScreen = ({ navigation, route }) => {
+  /* 2. Get the param */
+  const { category } = route.params;
+
   const styles = useStyleSheet(themedStyles);
 
   const displayProducts = products;
@@ -84,7 +87,7 @@ const ProductListScreen = ({ navigation, route }) => {
     <React.Fragment>
       <SafeAreaView style={{ flex: 1, margin: 5 }}>
         <TopNavigation
-          title='Products List'
+          title={`Products List ${category}`}
           alignment='center'
           accessoryLeft={BackAction}
           // rightControls={[overflowMenu()]}

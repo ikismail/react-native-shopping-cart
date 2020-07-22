@@ -1,103 +1,67 @@
-export const TrainingLevel = {
-  EASY: "Easy",
-  MIDDLE: "Middle",
-  HARD: "Hard",
+export const CategoryType = {
+  ELECTRONICS: "Electronics",
+  MENSWEAR: "Clothings",
+  BOOK: "Books",
 };
 
-export class Training {
-  constructor(title, duration, level, image) {
+export class Category {
+  constructor(title, level, category, image) {
     this.title = title;
-    this.duration = duration;
     this.level = level;
     this.image = image;
+    this.category = category;
   }
 
   get formattedLevel() {
-    return `${this.level} Level`;
+    return `${this.level}`;
   }
 
-  get formattedDuration() {
-    return `${this.duration} min`;
+  get getCategory() {
+    return `${this.category}`;
   }
 
-  static chestEasy() {
-    return new Training(
-      "Chest",
-      55,
-      TrainingLevel.EASY,
-      require("../../../assets/trainings/image-training-1.jpg")
+  static laptops() {
+    return new Category(
+      "Laptops",
+      CategoryType.ELECTRONICS,
+      "LAPTOPS",
+      require("../../../assets/trainings/laptops.jpg")
     );
   }
 
-  static workoutEasy() {
-    return new Training(
-      "Chest",
-      55,
-      TrainingLevel.EASY,
-      require("../../../assets/trainings/image-training-2.jpg")
+  static mobiles() {
+    return new Category(
+      "Brand Mobiles",
+      CategoryType.ELECTRONICS,
+      "MOBILES",
+      require("../../../assets/trainings/mobiles.png")
     );
   }
 
-  static personalizedEasy() {
-    return new Training(
-      "Personalized Training",
-      55,
-      TrainingLevel.EASY,
-      require("../../../assets/trainings/image-training-3.jpg")
+  static accessories() {
+    return new Category(
+      "Accessories",
+      CategoryType.ELECTRONICS,
+      "ACCESSORIES",
+      require("../../../assets/trainings/accessories.png")
     );
   }
 
-  static chestMiddle() {
-    return new Training(
-      "Chest",
-      55,
-      TrainingLevel.MIDDLE,
-      require("../../../assets/trainings/image-training-4.jpg")
+  static mensWear() {
+    return new Category(
+      "Men's Wear",
+      CategoryType.MENSWEAR,
+      "CLOTHINGS",
+      require("../../../assets/trainings/clothings.jpg")
     );
   }
 
-  static bicepsMiddle() {
-    return new Training(
-      "Biceps",
-      55,
-      TrainingLevel.MIDDLE,
-      require("../../../assets/trainings/image-training-5.jpg")
-    );
-  }
-
-  static personalizedMiddle() {
-    return new Training(
-      "Personalized Training",
-      55,
-      TrainingLevel.MIDDLE,
-      require("../../../assets/trainings/image-training-1.jpg")
-    );
-  }
-
-  static chestHard() {
-    return new Training(
-      "Chest",
-      55,
-      TrainingLevel.HARD,
-      require("../../../assets/trainings/image-training-2.jpg")
-    );
-  }
-
-  static bicepsHard() {
-    return new Training(
-      "Biceps",
-      55,
-      TrainingLevel.HARD,
-      require("../../../assets/trainings/image-training-3.jpg")
-    );
-  }
-
-  static workoutHard() {
-    return new Training(
-      "Workout",
-      55,
-      TrainingLevel.HARD,
-      require("../../../assets/trainings/image-training-4.jpg")
+  static books() {
+    return new Category(
+      "Best Reads",
+      CategoryType.BOOK,
+      "BOOKS",
+      require("../../../assets/trainings/books.jpg")
     );
   }
 }

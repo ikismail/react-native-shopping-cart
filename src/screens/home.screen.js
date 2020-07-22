@@ -7,24 +7,22 @@ import {
 import React from "react";
 import { StyleSheet, SafeAreaView, StatusBar } from "react-native";
 
-import TrainingCard from "../components/training-card";
-import { Training } from "../store/data/trainings";
+import CategoryCard from "../components/category-card";
+import { Category } from "../store/data/trainings";
 import { MenuIcon } from "../components/icons";
 
-const trainings = [
-  Training.chestEasy(),
-  Training.workoutEasy(),
-  Training.personalizedEasy(),
-  Training.bicepsMiddle(),
-  Training.chestMiddle(),
-  Training.personalizedMiddle(),
-  Training.bicepsHard(),
-  Training.workoutHard(),
-  Training.chestHard(),
+const categories = [
+  Category.laptops(),
+  Category.mobiles(),
+  Category.accessories(),
 ];
 
 const HomeScreen = ({ navigation }) => {
-  const displayTrainings = trainings;
+  const displayTrainings = [
+    Category.mobiles(),
+    Category.mensWear(),
+    Category.books(),
+  ];
 
   const renderHeader = () => (
     <React.Fragment>
@@ -42,17 +40,17 @@ const HomeScreen = ({ navigation }) => {
   );
 
   const renderHorizontalTrainingItem = (info) => (
-    <TrainingCard
+    <CategoryCard
       style={styles.horizontalItem}
-      training={info.item}
+      category={info.item}
       navigation={navigation}
     />
   );
 
   const renderVerticalTrainingItem = (info) => (
-    <TrainingCard
+    <CategoryCard
       style={styles.verticalItem}
-      training={info.item}
+      category={info.item}
       navigation={navigation}
     />
   );
@@ -77,7 +75,7 @@ const HomeScreen = ({ navigation }) => {
         />
         <List
           contentContainerStyle={styles.list}
-          data={trainings}
+          data={categories}
           renderItem={renderVerticalTrainingItem}
           ListHeaderComponent={renderHeader}
         />
