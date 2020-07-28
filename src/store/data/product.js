@@ -27,7 +27,7 @@ export class ProductDetail {
       "150$",
       require("../../../assets/products/image-product-1.png"),
       "H:80cm W:50cm D:40cm",
-      [ProductColor.gray(), ProductColor.pink(), ProductColor.orange()],
+      [ProductColor.blue(), ProductColor.pink(), ProductColor.orange()],
       [Comment.byHubertFranck()]
     );
   }
@@ -39,7 +39,7 @@ export class ProductColor {
     this.description = description;
   }
 
-  static gray() {
+  static blue() {
     return new ProductColor("#3366FF", "blue");
   }
 
@@ -80,27 +80,12 @@ export class Profile {
   }
 }
 
-export class Like {
-  constructor(author) {
-    this.author = author;
-  }
-
-  static byMarkVolter() {
-    return new Like(Profile.markVolter());
-  }
-
-  static byHubertFranck() {
-    return new Like(Profile.hubertFranck());
-  }
-}
-
 export class Comment {
-  constructor(text, date, author, comments, likes) {
+  constructor(text, date, author, comments) {
     this.text = text;
     this.date = date;
     this.author = author;
     this.comments = comments;
-    this.likes = likes;
   }
 
   static byHubertFranck() {
@@ -108,8 +93,7 @@ export class Comment {
       "The chair has a good quality!",
       "Today 11:10 am",
       Profile.hubertFranck(),
-      [Comment.byMarkVolter()],
-      [Like.byMarkVolter()]
+      [Comment.byMarkVolter()]
     );
   }
 
@@ -118,7 +102,6 @@ export class Comment {
       "Yes! I agree with you",
       "Today 11:10 am",
       Profile.markVolter(),
-      [],
       []
     );
   }

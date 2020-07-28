@@ -2,7 +2,7 @@ import { Avatar, Button, Card, List, Text } from "@ui-kitten/components";
 import React from "react";
 import { StyleSheet, View } from "react-native";
 
-import { HeartIconFill, MessageCircleIcon, MoreHorizontalIcon } from "./icons";
+import { MoreHorizontalIcon } from "./icons";
 
 export const CommentList = (props) => {
   const renderCommentHeader = (comment) => (
@@ -28,22 +28,6 @@ export const CommentList = (props) => {
       style={styles.commentItem}
       header={() => renderCommentHeader(info.item)}>
       <Text>{info.item.text}</Text>
-      <View style={styles.commentReactionsContainer}>
-        <Button
-          style={styles.iconButton}
-          appearance='ghost'
-          status='basic'
-          accessoryLeft={MessageCircleIcon}>
-          {`${info.item.comments.length}`}
-        </Button>
-        <Button
-          style={styles.iconButton}
-          appearance='ghost'
-          status='danger'
-          accessoryLeft={HeartIconFill}>
-          {`${info.item.likes.length}`}
-        </Button>
-      </View>
     </Card>
   );
 
