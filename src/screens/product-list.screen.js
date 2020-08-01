@@ -17,18 +17,52 @@ import {
   TopNavigationAction,
 } from "@ui-kitten/components";
 import { CartIcon, BackIcon } from "../components/icons";
-import { Product } from "../store/data/products";
+import * as fakeData from "../store/data/fake_data";
 
-const products = [
-  Product.pinkChair(),
-  Product.blackLamp(),
-  Product.whiteChair(),
-  Product.woodChair(),
-  Product.pinkChair(),
-  Product.blackLamp(),
-  Product.whiteChair(),
-  Product.woodChair(),
-];
+const productSwitch = (category) => {
+  switch (category) {
+    case "BOOKS":
+      return [
+        fakeData.book1(),
+        fakeData.book2(),
+        fakeData.book3(),
+        fakeData.book4(),
+        fakeData.book5(),
+      ];
+    case "CLOTHINGS":
+      return [
+        fakeData.clothing1(),
+        fakeData.clothing2(),
+        fakeData.clothing3(),
+        fakeData.clothing4(),
+        fakeData.clothing5(),
+      ];
+    case "ACCESSORIES":
+      return [
+        fakeData.access1(),
+        fakeData.access2(),
+        fakeData.access3(),
+        fakeData.access4(),
+        fakeData.access5(),
+      ];
+    case "LAPTOPS":
+      return [
+        fakeData.laptop1(),
+        fakeData.laptop2(),
+        fakeData.laptop3(),
+        fakeData.laptop4(),
+        fakeData.laptop5(),
+      ];
+    default:
+      return [
+        fakeData.book1(),
+        fakeData.book2(),
+        fakeData.book3(),
+        fakeData.book4(),
+        fakeData.book5(),
+      ];
+  }
+};
 
 const ProductListScreen = ({ navigation, route }) => {
   /* 2. Get the param */
@@ -36,7 +70,7 @@ const ProductListScreen = ({ navigation, route }) => {
 
   const styles = useStyleSheet(themedStyles);
 
-  const displayProducts = products;
+  const displayProducts = productSwitch(category);
 
   const onItemPress = (index) => {
     navigation && navigation.navigate("ProductDetail");
