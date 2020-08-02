@@ -6,7 +6,7 @@ export const book1 = () =>
     "Clean code",
     "Book",
     require("../../../assets/books/clean_code.jpg"),
-    130,
+    25.27,
     1
   );
 
@@ -15,7 +15,7 @@ export const book2 = () =>
     "Code Complete",
     "Book",
     require("../../../assets/books/code_complete.jpg"),
-    130,
+    34.36,
     1
   );
 
@@ -24,7 +24,7 @@ export const book3 = () =>
     "Code Refactor",
     "Book",
     require("../../../assets/books/code_refactor.jpg"),
-    130,
+    38.1,
     1
   );
 
@@ -33,7 +33,7 @@ export const book4 = () =>
     "Design Patterns",
     "Book",
     require("../../../assets/books/design_patterns.jpg"),
-    130,
+    32.5,
     1
   );
 
@@ -42,7 +42,7 @@ export const book5 = () =>
     "Pragmatic Programmer",
     "Book",
     require("../../../assets/books/pragmatic_programmer.jpg"),
-    130,
+    35.69,
     1
   );
 

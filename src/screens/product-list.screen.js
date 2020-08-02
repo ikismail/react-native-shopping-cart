@@ -121,7 +121,7 @@ const ProductListScreen = ({ navigation, route }) => {
     <React.Fragment>
       <SafeAreaView style={{ flex: 1, margin: 5 }}>
         <TopNavigation
-          title={`Products List ${category}`}
+          title={`Products List`}
           alignment='center'
           accessoryLeft={BackAction}
           // rightControls={[overflowMenu()]}
